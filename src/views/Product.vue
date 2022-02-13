@@ -42,7 +42,7 @@
         <router-view :key="$route.path"></router-view>
       </div>
       <div class="col-md-8" v-if="carts != 0">
-        <h4>ตะ</h4>
+        <h4>ตะกร้าสินค้า</h4>
         <table class="table table-striped">
           <thead>
             <tr>
