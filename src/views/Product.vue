@@ -303,13 +303,12 @@ export default {
 
         {
           id: 12,
-          title:
-            "WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive",
-          price: 114,
-          description:
-            "Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty",
-          category: "electronics",
-          image: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg",
+          title: "ไข่ไก่จากฟาร์มผมเอง",
+          price: 120,
+          description: "ไข่ไก่คุณภาพปราศจากโรคภัยไข้เจ็บ ไร้สารปนเปื้อน",
+          category: "ไข่ไก่",
+          image:
+            "https://www.cpfworldwide.com/storage/news/image_Webp.net-compress-image_1599638269.jpg",
 
           rating: {
             rate: 4.8,
