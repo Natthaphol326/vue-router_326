@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="primary" dark>
+    <v-app-bar app dark class="background">
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
@@ -51,3 +51,36 @@ export default {
   }),
 };
 </script>
+
+<style>
+.background {
+  background: rgb(255, 255, 255);
+  animation: mymove 5s infinite;
+}
+
+@keyframes mymove {
+  from {
+    background-color: wheat;
+  }
+  to {
+    background-color: rgb(241, 208, 147);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.mr-2 {
+  background: linear-gradient(80deg, #929292, #000000);
+  background-size: 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 3s infinite;
+}
+</style>

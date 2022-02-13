@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <center><h1>Product Page</h1></center>
+    <center><h1 class="p1">Product Page</h1></center>
     <v-container class="d-flex flex-wrap">
       <v-card
         class="mx-auto mb-5"
@@ -9,7 +9,7 @@
         :key="index"
       >
         <v-img class="green--text align-end" height="200px" :src="i.image">
-          <v-card-title>{{ i.title }}</v-card-title>
+          <v-card-title class="textColor">{{ i.title }}</v-card-title>
         </v-img>
 
         <v-card-subtitle class="pb-0">{{ i.category }}</v-card-subtitle>
@@ -20,8 +20,7 @@
         <v-card-actions>
           <v-btn color="primary" @click="addCart(i)">ADD </v-btn>
           <v-btn
-            color="info"
-            text
+            color="warning"
             :to="{
               name: 'productdetail',
               params: {
@@ -32,7 +31,7 @@
                 rating: i.rating,
               },
             }"
-            >รายละเอียด</v-btn
+            >Detail</v-btn
           >
         </v-card-actions>
       </v-card>
@@ -42,20 +41,20 @@
         <router-view :key="$route.path"></router-view>
       </div>
       <div class="col-md-8" v-if="carts != 0">
-        <h4>ตะกร้าสินค้า</h4>
+        <h4>Cart</h4>
         <table class="table table-striped">
           <thead>
-            <tr>
-              <th scope="col">ภาพ</th>
-              <th scope="col">ชื่อ</th>
-              <th scope="col">ราคา</th>
-              <th scope="col">จำนวน</th>
-              <th scope="col">ราคารวม</th>
-              <th scope="col">ลบ</th>
+            <tr align="center">
+              <th scope="col">Picture</th>
+              <th scope="col">Name</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total</th>
+              <th scope="col">Remove</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(product, index) in carts" :key="index">
+            <tr v-for="(product, index) in carts" :key="index" align="center">
               <td>
                 <img :src="product.img" alt="" width="60px" height="60px" />
               </td>
@@ -80,17 +79,17 @@
               </td>
             </tr>
           </tbody>
-          <tbody>
+          <tbody align="center">
             <td></td>
             <td></td>
             <td></td>
-            <td><h5>ราคารวม</h5></td>
+            <td><h5>Total price</h5></td>
             <td>
               <h6>{{ total() }}</h6>
             </td>
             <td>
               <v-btn class="success" onClick="window.location.reload();"
-                >ชำระเงิน</v-btn
+                >- Pay -</v-btn
               >
             </td>
           </tbody>
@@ -487,7 +486,7 @@ export default {
       product.total = product.price * product.quantity;
     },
     removeProduct: function (product) {
-      if (confirm("ต้องการลบหรือไม่ ? ")) {
+      if (confirm("Do you want to remove? ")) {
         var index = this.carts.indexOf(product);
         this.carts.splice(index, 1);
         if (product.id == 1) {
@@ -518,7 +517,13 @@ export default {
           this.nine = 0;
         }
         if (product.id == 10) {
-          this.one = 0;
+          this.ten = 0;
+        }
+        if (product.id == 11) {
+          this.eleven = 0;
+        }
+        if (product.id == 12) {
+          this.twelve = 0;
         }
       }
     },
@@ -541,5 +546,22 @@ export default {
 .quantity-plus {
   cursor: pointer;
   margin-left: 20px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.textColor {
+  background: linear-gradient(80deg, #979494, rgb(233, 220, 35));
+  background-size: 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 4s infinite;
 }
 </style>

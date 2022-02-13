@@ -2,7 +2,7 @@
   <v-container>
     <v-card class="mx-auto" max-width="400">
       <v-container>
-        <img :src="img" alt="" width="380px" height="380px" />
+        <v-img class="green--text align-end" height="380px" :src="img"> </v-img>
       </v-container>
       <v-container>
         <v-row align="center" class="mx-0">
